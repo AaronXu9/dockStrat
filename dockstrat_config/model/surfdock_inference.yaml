@@ -1,0 +1,34 @@
+benchmark: runsNposes
+repeat_index: 0
+
+# Path to the SurfDock installation (needs extracted tools + editable ESM install)
+# NOTE: tools/MSMS/APBS and ESM library are not in the git submodule; point to the
+# local installation that has them. Model weights are served from forks/SurfDock.
+surfdock_dir: ${oc.env:SURFDOCK_DIR}  # set to your local SurfDock installation (needs extracted tools + editable ESM)
+# Precomputed SO3/torus arrays required at import time by SurfDock internals
+precomputed_arrays: ${oc.env:SURFDOCK_PRECOMPUTED_ARRAYS}
+surfdock_env: SurfDock  # conda env name
+
+# Pre-computed data for runsNposes (Steps 1-3 already done)
+inputs_csv: ${oc.env:SURFDOCK_INPUTS_CSV,null}        # dataset mode only: pre-built input CSV
+esm_embeddings_path: ${oc.env:SURFDOCK_ESM_EMBEDDINGS,null}  # dataset mode only: pre-computed .pt
+surface_dir: ${oc.env:SURFDOCK_SURFACE_DIR,null}    # dataset mode only: pre-computed 8A surfaces
+
+# Model weights
+diffusion_model_dir: ${oc.env:PROJECT_ROOT}/forks/SurfDock/model_weights/docking
+confidence_model_dir: ${oc.env:PROJECT_ROOT}/forks/SurfDock/model_weights/posepredict
+
+# Output directories
+# inference_accelerate.py writes to {docking_result_dir}/SurfDock_docking_result/{dirname}/
+docking_result_dir: ${oc.env:PROJECT_ROOT}/forks/SurfDock/inference/${benchmark}_${repeat_index}
+output_dir: ${oc.env:PROJECT_ROOT}/forks/SurfDock/inference/${benchmark}_${repeat_index}/ranked_poses
+
+# Inference parameters
+num_gpus: 1
+main_process_port: 29510
+batch_size: 40
+samples_per_complex: 40
+num_poses: 40          # how many poses to save per complex
+mdn_dist_threshold: 3
+
+skip_existing: true

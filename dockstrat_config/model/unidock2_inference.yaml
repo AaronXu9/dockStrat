@@ -1,0 +1,12 @@
+benchmark: runsNposes
+repeat_index: 0
+data_dir: ${oc.env:PROJECT_ROOT}/data/${benchmark}
+output_dir: ${oc.env:PROJECT_ROOT}/forks/UniDock2/inference/${benchmark}_${repeat_index}
+log_dir: ${oc.env:PROJECT_ROOT}/forks/UniDock2/inference/logs
+num_poses: 10
+box_size: [15.0, 15.0, 15.0]
+search_mode: detail
+energy_range: 15.0
+timeout: 1800
+max_workers: 2
+skip_existing: true

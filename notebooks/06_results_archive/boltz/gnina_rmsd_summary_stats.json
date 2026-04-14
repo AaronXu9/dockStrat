@@ -1,0 +1,15 @@
+{
+  "total_pairs": 9323,
+  "successful_pairs": 9323,
+  "failed_pairs": 0,
+  "unique_targets": 1036,
+  "mean_rmsd": 1.4714138499836007,
+  "median_rmsd": 1.3932584149584308,
+  "std_rmsd": 0.8679304708628164,
+  "min_rmsd": 3.475354606301994e-05,
+  "max_rmsd": 6.16745743030624,
+  "global_alignments": 9314,
+  "mcs_alignments": 9,
+  "rank_correlation": 0.17563563118732417,
+  "score_correlation": -0.19942996357712126
+}

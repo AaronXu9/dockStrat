@@ -1,0 +1,26 @@
+{
+  "name": "8c3u__1__1.A__1.C",
+  "dialect": "alphafold3",
+  "version": 1,
+  "modelSeeds": [
+    1414231644,
+    1315584723,
+    710338087,
+    281973202,
+    3752802786
+  ],
+  "sequences": [
+    {
+      "protein": {
+        "id": "A",
+        "sequence": "APVRSLNCTLRDSQQKSLVMSGPYELKALHLQGQDMEQQVVFSMSFVQGEESNDKIPVALGLKEKNLYLSCVLKDDKPTLQLESVDPKNYPKKKMEKRFVFNKIEINNKLEFESAQFPNWYISTSQAENMPVFLGGTKGGQDITDFTMQFVSS"
+      }
+    },
+    {
+      "ligand": {
+        "id": "B",
+        "smiles": "Cc1ccc2c(c1)NC(=O)[C@@]2(c1cn[nH]c1)c1cc(-c2ccc(C(=O)O)cc2C(=O)O)ccc1O"
+      }
+    }
+  ]
+}

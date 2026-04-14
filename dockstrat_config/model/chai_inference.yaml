@@ -1,0 +1,33 @@
+# Chai-1 inference configuration.
+
+# Dataset mode
+dataset: runsNposes
+repeat_index: 0
+skip_existing: true
+max_num_inputs: null
+
+# Input: per-system folders with {id}_protein.pdb and {id}_ligand.sdf
+input_dir: ${oc.env:PROJECT_ROOT}/data/${dataset}
+
+# Output: rank{N}.sdf per system
+output_dir: ${oc.env:PROJECT_ROOT}/forks/chai-lab/prediction_outputs/${dataset}_${repeat_index}
+
+# Environment (REQUIRED — path to Python executable in the chai-lab conda env)
+# Created by scripts/install_chai_env.sh which symlinks envs/chai → /mnt/katritch_lab2/aoxu/envs/chai
+python_exec_path: ${oc.env:PROJECT_ROOT}/envs/chai/bin/python
+
+# Inference knobs
+cuda_device_index: 0
+num_trunk_recycles: 3        # Chai-1 trunk recycle count
+num_diffn_timesteps: 200     # diffusion timesteps
+seed: 42                     # random seed for reproducibility
+use_esm_embeddings: true     # use ESM2 embeddings for protein sequences
+num_poses_to_keep: 5         # top-N ranked SDFs to write per system
+timeout_seconds: 3600        # per-system hard cap
+
+# Logging
+logging:
+  level: INFO
+  file: chai-1_docking.log
+  console: true
+  log_dir: ${oc.env:PROJECT_ROOT}/logs

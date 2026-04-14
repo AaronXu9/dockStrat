@@ -1,0 +1,19 @@
+[
+    {
+        "name": "8c3u__1__1.A__1.C",
+        "sequences": [
+            {
+                "proteinChain": {
+                    "count": 1,
+                    "sequence": "APVRSLNCTLRDSQQKSLVMSGPYELKALHLQGQDMEQQVVFSMSFVQGEESNDKIPVALGLKEKNLYLSCVLKDDKPTLQLESVDPKNYPKKKMEKRFVFNKIEINNKLEFESAQFPNWYISTSQAENMPVFLGGTKGGQDITDFTMQFVSS"
+                }
+            },
+            {
+                "ligand": {
+                    "ligand": "Cc1ccc2c(c1)NC(=O)[C@@]2(c1cn[nH]c1)c1cc(-c2ccc(C(=O)O)cc2C(=O)O)ccc1O",
+                    "count": 1
+                }
+            }
+        ]
+    }
+]

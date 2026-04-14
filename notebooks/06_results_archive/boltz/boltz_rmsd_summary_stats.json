@@ -1,0 +1,13 @@
+{
+  "total_pairs": 2877,
+  "successful_pairs": 2865,
+  "failed_pairs": 12,
+  "unique_targets": 959,
+  "mean_rmsd": 1.0517161250171503,
+  "median_rmsd": 0.8682583906483603,
+  "std_rmsd": 0.749548402774592,
+  "min_rmsd": 0.0,
+  "max_rmsd": 4.725562359543919,
+  "global_alignments": 216,
+  "mcs_alignments": 2649
+}

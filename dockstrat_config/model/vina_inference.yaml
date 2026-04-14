@@ -1,0 +1,23 @@
+
+# benchmark: plinder
+# repeat_index: 0 # the repeat index to use for inference
+# method: vina # the method from which to derive binding site predictions - NOTE: must be one of (`diffdock`, `dynamicbind`, `neuralplexer`, `p2rank`, `ensemble`)
+# method_dir: Vina
+# cuda_device_index: 0 # the CUDA device to use for inference, or `null` to use CPU
+# inputs_csv: ${oc.env:PROJECT_ROOT}/forks/${method_dir}/inference/vina_plinder_benchmark_inputs.csv # the input CSV filepath with which to run inference
+# output_dir: ${oc.env:PROJECT_ROOT}/forks/${method_dir}/inference/${method}_${benchmark}_output_${repeat_index} # the output directory to which to save the inference results
+# log_dir: ${oc.env:PROJECT_ROOT}/forks/${method_dir}/inference/logs # the log directory to which to save the inference logs 
+# top_n: 5
+
+
+# benchmark: runsNposes
+benchmark: runsNposes
+repeat_index: 0 # the repeat index to use for inference
+method: vina # the method from which to derive binding site predictions - NOTE: must be one of (`diffdock`, `dynamicbind`, `neuralplexer`, `p2rank`, `ensemble`)
+method_dir: Vina
+cuda_device_index: 0 # the CUDA device to use for inference, or `null` to use CPU
+# inputs_csv: ${oc.env:PROJECT_ROOT}/forks/${method_dir}/inference/gnina_plinder_benchmark_inputs_subset.csv # the input CSV filepath with which to run inference
+inputs_csv: ${oc.env:PROJECT_ROOT}/forks/${method_dir}/inference/vina_runsNposes_benchmark_inputs.csv # the input CSV filepath with which to run inference
+output_dir: ${oc.env:PROJECT_ROOT}/forks/${method_dir}/inference/${benchmark}_${repeat_index} # the output directory to which to save the inference results
+log_dir: ${oc.env:PROJECT_ROOT}/forks/${method_dir}/inference/logs/${method_dir} # the log directory to which to save the inference logs 
+top_n: 10

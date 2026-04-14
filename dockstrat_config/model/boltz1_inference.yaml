@@ -1,0 +1,35 @@
+# Boltz-1 inference configuration (no-MSA / single-sequence mode).
+
+# Dataset mode (runsNposes and friends)
+dataset: runsNposes
+benchmark: ${dataset}
+repeat_index: 0
+skip_existing: true
+max_num_inputs: null
+
+# Input: a dataset directory with per-system folders, each containing
+# {id}_protein.pdb and {id}_ligand.sdf
+input_dir: ${oc.env:PROJECT_ROOT}/data/${dataset}
+
+# Output: rank{N}.sdf per system, plus cached Boltz YAML inputs and mmCIF outputs
+output_dir: ${oc.env:PROJECT_ROOT}/forks/boltz/prediction_outputs/boltz1_${dataset}_${repeat_index}
+
+# Boltz binary and model variant
+boltz_binary: ${oc.env:PROJECT_ROOT}/envs/boltz/bin/boltz
+model: boltz1
+
+# Inference knobs
+cuda_device_index: 0
+diffusion_samples: 5          # number of diffusion samples per system
+recycling_steps: 3             # Boltz-1 default
+sampling_steps: 200            # Boltz-1 default
+seed: 42
+num_poses_to_keep: 5           # how many top-ranked SDFs to write
+timeout_seconds: 3600          # per-system hard cap; on timeout, log + skip
+
+# Logging
+logging:
+  level: INFO
+  file: boltz1_docking.log
+  console: true
+  log_dir: ${oc.env:PROJECT_ROOT}/logs

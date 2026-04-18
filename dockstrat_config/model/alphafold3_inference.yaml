@@ -1,0 +1,36 @@
+# AlphaFold3 inference configuration (no-MSA / single-sequence mode).
+# See docs/superpowers/specs/2026-04-10-alphafold3-integration-design.md
+
+# Dataset mode (runsNposes and friends)
+dataset: runsNposes
+benchmark: ${dataset}
+repeat_index: 0
+skip_existing: true
+max_num_inputs: null
+
+# Input: a dataset directory with per-system folders, each containing
+# {id}_protein.pdb and {id}_ligand.sdf
+input_dir: ${oc.env:PROJECT_ROOT}/data/${dataset}
+
+# Output: rank{N}.sdf per system, plus cached AF3 JSON inputs and mmCIF outputs
+output_dir: ${oc.env:PROJECT_ROOT}/forks/alphafold3/prediction_outputs/${dataset}_${repeat_index}
+
+# Environment / install
+alphafold3_env: ${oc.env:PROJECT_ROOT}/envs/alphafold3        # symlink → /mnt/katritch_lab2/aoxu/envs/alphafold3
+alphafold3_dir: ${oc.env:PROJECT_ROOT}/forks/alphafold3/alphafold3
+model_dir:      ${oc.env:PROJECT_ROOT}/forks/alphafold3/models
+
+# Inference knobs
+cuda_device_index: 0
+num_samples: 5            # AF3 default: 5 diffusion samples per seed
+num_seeds: 1              # one seed × num_samples = total poses
+num_recycles: 10          # AF3 default
+num_poses_to_keep: 5      # how many top-ranked SDFs to write
+timeout_seconds: 3600     # per-system hard cap; on timeout, log + skip
+
+# Logging
+logging:
+  level: INFO
+  file: alphafold3_docking.log
+  console: true
+  log_dir: ${oc.env:PROJECT_ROOT}/logs

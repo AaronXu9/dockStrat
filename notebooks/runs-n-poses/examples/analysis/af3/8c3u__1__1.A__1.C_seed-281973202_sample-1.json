@@ -1,0 +1,39 @@
+{
+    "model_ligands": [
+        "B.1."
+    ],
+    "reference_ligands": [
+        "../ground_truth/8c3u__1__1.A__1.C/ligand_files/1.C.sdf"
+    ],
+    "lddt_pli": {
+        "assigned_scores": [],
+        "model_ligand_unassigned_reason": {
+            "B.1.": [
+                "identity",
+                "Ligands could not be matched (by full graph isomorphism)"
+            ]
+        },
+        "reference_ligand_unassigned_reason": {
+            "../ground_truth/8c3u__1__1.A__1.C/ligand_files/1.C.sdf": [
+                "identity",
+                "Ligands could not be matched (by full graph isomorphism)"
+            ]
+        }
+    },
+    "rmsd": {
+        "assigned_scores": [],
+        "model_ligand_unassigned_reason": {
+            "B.1.": [
+                "identity",
+                "Ligands could not be matched (by full graph isomorphism)"
+            ]
+        },
+        "reference_ligand_unassigned_reason": {
+            "../ground_truth/8c3u__1__1.A__1.C/ligand_files/1.C.sdf": [
+                "identity",
+                "Ligands could not be matched (by full graph isomorphism)"
+            ]
+        }
+    },
+    "status": "SUCCESS"
+}

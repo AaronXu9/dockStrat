@@ -1,0 +1,50 @@
+
+call _startup
+show version
+# FILE: calculate_rmsd.icm
+#
+# This script is a generic template. It expects three command-line arguments:
+# S_ARGV[1]: path to reference_protein.pdb
+# S_ARGV[2]: path to predicted_complex.pdb
+# S_ARGV[3]: path to reference_ligand.sdf
+# S_ARGV[4]: the base name of the system (e.g., "1afb__1__1.A__1.D_1.F")
+
+# 1. Load molecules using the provided arguments
+# ------------------------------------------------------------------
+S_ARGV = Getarg(list)
+
+read pdb S_ARGV[1] name="ref_prot" quiet
+read mol table S_ARGV[3] name="lig_table" quiet
+
+I_out = Index(lig_table selection cursor)
+parrayToMol lig_table.mol [ I_out ] ""
+
+move a_ICMLIGNAME.m a_ref_prot.
+
+
+read pdb S_ARGV[2] name="pred_cmx" quiet
+
+# 2. align
+align a_ref_prot.a a_pred_cmx.a
+
+# 5. Calculate Ligand RMSD and produce the final output
+# ------------------------------------------------------------------
+r_lig_rmsd = Srmsd(a_ref_prot.m a_pred_cmx.blig chemical)
+# Srmsd(a_ref_prot.m a_pred_cmx.blig chemical)
+
+# Print a single, clean, comma-separated line for easy parsing
+# First, convert the numeric RMSD values to strings.
+s_prot_rmsd_str = String(r_prot_rmsd)
+s_lig_rmsd_str  = String(r_lig_rmsd)
+
+# Second, concatenate everything into a single string variable.
+s_output_line   = S_ARGV[4] + "," + s_prot_rmsd_str + "," + s_lig_rmsd_str
+
+# Finally, print the single, complete string.
+print s_output_line
+
+# Clean up
+delete a_!*
+delete t
+
+quit

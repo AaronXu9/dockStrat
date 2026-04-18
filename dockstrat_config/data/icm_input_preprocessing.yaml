@@ -1,0 +1,42 @@
+# Basic configuration
+dataset: "plinder_set"
+data_dir: "${oc.env:PROJECT_ROOT}/data/plinder_set"
+icm_script_template: "./forks/ICM/icm_docking_scripts_template/icm_load_and_preprocessing_template.icm"
+icm_executable: "/home/aoxu/icm-3.9-4/icm64"
+icm_docking_dir: "${oc.env:PROJECT_ROOT}/forks/ICM"
+
+# Optional settings
+# subset_dir: "${oc.env:PROJECT_ROOT}/forks/DiffDock/inference/diffdock_posebusters_benchmark_output_orig_structure_1/"
+docking_maps: "manual"
+icm_dockscan_path: "/home/aoxu/icm-3.9-4/_dockScan"
+repeat_index: 0
+icb_out_dir: "${oc.env:PROJECT_ROOT}/forks/ICM/inference/plinder_set"
+
+# Docking parameters
+docking_params:
+  num_conf: 10
+  thorough: 10.0
+  effort: 3
+
+# Platform-specific configurations
+platform_configs:
+  Darwin:
+    icm_home: "/Applications/MolsoftICM64.app/Contents/Resources/icm"
+    icm_dockscan_path: "/Applications/MolsoftICM64.app/Contents/Resources/icm/_dockScan"
+  Linux:
+    icm_home: ""
+    icm_dockscan_path: ""
+
+# Filtering options
+# skip_patterns:
+#   - "invalid_pattern1"
+#   - "invalid_pattern2"
+
+# Skip processing existing results (for resume capability)
+skip_existing: true
+
+# Logging configuration
+logging:
+  level: "INFO"
+  file: "icm_docking.log"
+  console: true

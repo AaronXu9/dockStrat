@@ -1,0 +1,9 @@
+{
+  "total_boltz_entries": 2877,
+  "total_pymol_entries": 4775,
+  "successfully_updated": 2865,
+  "not_found_in_pymol": 12,
+  "update_success_rate": 99.58289885297185,
+  "mean_updated_rmsd": 2.817313622059309,
+  "median_updated_rmsd": 2.78761887550354
+}

@@ -1,0 +1,39 @@
+{
+    "model_ligands": [
+        "../outputs/protenix/8c3u__1__1.A__1.C/seed_2133214759/predictions/2/B0.l011.sdf"
+    ],
+    "reference_ligands": [
+        "../ground_truth/8c3u__1__1.A__1.C/ligand_files/1.C.sdf"
+    ],
+    "lddt_pli": {
+        "assigned_scores": [],
+        "model_ligand_unassigned_reason": {
+            "../outputs/protenix/8c3u__1__1.A__1.C/seed_2133214759/predictions/2/B0.l011.sdf": [
+                "identity",
+                "Ligands could not be matched (by full graph isomorphism)"
+            ]
+        },
+        "reference_ligand_unassigned_reason": {
+            "../ground_truth/8c3u__1__1.A__1.C/ligand_files/1.C.sdf": [
+                "identity",
+                "Ligands could not be matched (by full graph isomorphism)"
+            ]
+        }
+    },
+    "rmsd": {
+        "assigned_scores": [],
+        "model_ligand_unassigned_reason": {
+            "../outputs/protenix/8c3u__1__1.A__1.C/seed_2133214759/predictions/2/B0.l011.sdf": [
+                "identity",
+                "Ligands could not be matched (by full graph isomorphism)"
+            ]
+        },
+        "reference_ligand_unassigned_reason": {
+            "../ground_truth/8c3u__1__1.A__1.C/ligand_files/1.C.sdf": [
+                "identity",
+                "Ligands could not be matched (by full graph isomorphism)"
+            ]
+        }
+    },
+    "status": "SUCCESS"
+}
